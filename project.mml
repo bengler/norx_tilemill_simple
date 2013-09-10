@@ -1,0 +1,385 @@
+{
+  "bounds": [
+    -180,
+    -85.05112877980659,
+    180,
+    85.05112877980659
+  ],
+  "center": [
+    0,
+    0,
+    2
+  ],
+  "format": "png",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 22,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "areas.mss",
+    "colors.mss",
+    "admin.mss",
+    "roads.mss",
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "id": "countries",
+      "name": "countries",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "geometry": "polygon",
+      "Datasource": {
+        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-countries.zip",
+        "type": "shape",
+        "id": "countries",
+        "project": "n50_selector",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "extent": [
+        -179.99978348919961,
+        -85.051,
+        180,
+        83.63381093402975
+      ],
+      "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM vegsti WHERE objtype = 'Sti') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "dbname": "n50_development",
+        "user": "even"
+      },
+      "id": "stier",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "stier",
+      "status": "off"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.957780597803377,
+        57.55894119165946,
+        32.29109554571185,
+        70.96242168668412
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM arealdekkeflate WHERE objtype = 'Skog') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-99551.2100000009,6424129.51,1121940.59,7962743.58",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "forest",
+        "project": "n50_selector",
+        "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
+      },
+      "id": "forest",
+      "class": "area",
+      "srs-name": "custom",
+      "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ",
+      "advanced": {},
+      "name": "forest"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.957780597803377,
+        57.55894119165946,
+        32.29109554571185,
+        70.96242168668412
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM arealdekkeflate WHERE objtype = 'TettBebyggelse' or objtype = 'BymessigBebyggelse') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-99551.2100000009,6424129.51,1121940.59,7962743.58",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "city",
+        "project": "n50_selector",
+        "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
+      },
+      "id": "city",
+      "class": "area",
+      "srs-name": "custom",
+      "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ",
+      "advanced": {},
+      "name": "city"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.957780597803377,
+        57.55894119165946,
+        32.29109554571185,
+        70.96242168668412
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM arealdekkeflate WHERE objtype = 'Havflate') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-99551.2100000009,6424129.51,1121940.59,7962743.58",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "cities",
+        "project": "n50_selector",
+        "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
+      },
+      "id": "sea",
+      "class": "area",
+      "srs-name": "custom",
+      "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ",
+      "advanced": {},
+      "name": "sea"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.957780597803377,
+        57.55894119165946,
+        32.29109554571185,
+        70.96242168668412
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM arealdekkeflate WHERE objtype = 'Innsjø') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-99551.2100000009,6424129.51,1121940.59,7962743.58",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "lake",
+        "project": "n50_selector",
+        "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
+      },
+      "id": "lake",
+      "class": "area",
+      "srs-name": "custom",
+      "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ",
+      "advanced": {},
+      "name": "sea"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.957780597803377,
+        57.55894119165946,
+        32.29109554571185,
+        70.96242168668412
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM arealdekkeflate WHERE objtype = 'ElvBekk') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-99551.2100000009,6424129.51,1121940.59,7962743.58",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "cities",
+        "project": "n50_selector",
+        "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
+      },
+      "id": "rivers_poly",
+      "class": "area",
+      "srs-name": "custom",
+      "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ",
+      "advanced": {},
+      "name": "rivers_poly"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.08753245746424,
+        57.759001557513606,
+        31.7614727973067,
+        71.3848754939
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM adminflate where objtype = 'Kommune') AS data\n",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "4.08753245746424,57.7590015575136,31.7614727973067,71.3848754939",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "municipality",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "municipality",
+      "class": "administrativeBorder",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "municipality"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM vegsti WHERE vegkategor  = 'R') AS data\n",
+        "key_field": "gid",
+        "geometry_field": "the_geom",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "nationalRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "nationalRoad"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM vegsti WHERE vegkategor  = 'F') AS data\n",
+        "key_field": "gid",
+        "geometry_field": "the_geom",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "countyRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "countyRoad"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM vegsti WHERE vegkategor  = 'K') AS data\n",
+        "key_field": "gid",
+        "geometry_field": "the_geom",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "municipalRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "municipalRoad"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM vegsti WHERE motorvegty  = 'Motorveg' or motorvegty  = 'Motortrafikkveg') AS data\n",
+        "key_field": "gid",
+        "geometry_field": "the_geom",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "motorway",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "motorway"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.6341425531269,
+        58.0124583290681,
+        31.1204911896627,
+        71.1700391763523
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM grunnriss) AS data\n",
+        "key_field": "gid",
+        "geometry_field": "the_geom",
+        "extent_cache": "auto",
+        "extent": "4.6341425531269,58.0124583290681,31.1204911896627,71.1700391763523",
+        "dbname": "n50_development",
+        "user": "even",
+        "id": "building",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "building",
+      "class": "",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "building"
+    }
+  ],
+  "scale": 1,
+  "metatile": 2,
+  "name": "N50 for Leaflet",
+  "description": ""
+}
