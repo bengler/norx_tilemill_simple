@@ -91,8 +91,7 @@
 }
 
 
-
-#railRoad {
+#railRoad[zoom>10] {
   ::line, ::hatch { 
     line-color: #333;
     line-opacity: 0.4;
@@ -128,9 +127,9 @@
   line-opacity: 0.5;
  }
 #ferge[zoom>10] {
+   line-opacity: 1;
   line-color: #599ebe;
   line-width: 4;
   line-dasharray: 1, 4;
   line-opacity: 0.8;
  }
-
