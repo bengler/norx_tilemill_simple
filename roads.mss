@@ -10,12 +10,15 @@
   } 
 }
 
+
 #europeRoad[zoom > 9], #motorway[zoom > 9] { 
   line-width: 2; 
-  line-opacity: 0.5;
+  line-opacity: 1;
+  line-color: #333;
   ::line {
     line-width:1; 
-      line-opacity: 1;
+    line-opacity: 0.7;
+    line-color: #fff;
   } 
 }
 
@@ -67,6 +70,7 @@
   ::line { 
     line-width:2; 
     line-color: #fff;
+    line-opacity: 1;
   }
 }
 
@@ -81,12 +85,13 @@
   }
 }
 #municipalRoad[zoom>13] {
-  line-color: #ccc; 
+  line-color: #aaa; 
   line-width: 3;
-  line-opacity: 0.8;
+  line-opacity: 1;
   ::line { 
-    line-width:1; 
+    line-width:2; 
     line-color: #fff;
+    line-opacity: 1;
   }
 }
 
@@ -121,7 +126,7 @@
 }
 
 #ferge {
-  line-color: #599ebe;
+line-color: #599ebe;
   line-width: 1;
   line-dasharray: 1, 2;
   line-opacity: 0.5;
@@ -133,3 +138,25 @@
   line-dasharray: 1, 4;
   line-opacity: 0.8;
  }
+
+
+
+/* this is repeated to much
+.road {
+  ::europaveg {
+    [vegkategori="E"] {
+      shield-file:  url("europavei.png");
+      shield-name: [vegkategori]+[vegnummer];
+      shield-face-name:"Lato Black";
+      shield-size:14;
+      shield-fill: #fff;
+      shield-line-spacing:0;
+      shield-min-distance:100;
+      shield-allow-overlap:true;
+      shield-placement:line;
+      shield-dx:100;
+      shield-spacing:5000;
+  	 }
+   }
+}
+*/
