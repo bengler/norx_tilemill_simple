@@ -2,15 +2,15 @@
 
 #motorway, #europeRoad { 
   line-color: #333; 
-  line-width:4;
-  line-opacity: 0.8;
-  ::line { 
-    line-width:2; 
-    line-color: #fff;
-  }
+  line-width:1;
+  line-opacity: 0.3;
+  ::line {
+    line-width:1; 
+    line-opacity: 0;
+  } 
 }
 
-#europeRoad[zoom > 5], #motorway[zoom > 5] { 
+#europeRoad[zoom > 9], #motorway[zoom > 9] { 
   line-width: 2; 
   line-opacity: 0.5;
   ::line {
@@ -28,7 +28,7 @@
   } 
 }
 /* Riksvei */
-#nationalRoad {
+#nationalRoad[zoom>7] {
   line-color: #999; 
   line-width: 3;
   line-opacity: 0.5;
@@ -38,7 +38,7 @@
   }
 }
 
-#nationalRoad[zoom > 5] { 
+#nationalRoad[zoom > 9] { 
   line-width: 4; 
   ::line {
     line-width:1; 

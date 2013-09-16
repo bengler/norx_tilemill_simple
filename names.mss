@@ -1,8 +1,8 @@
 #fylke[zoom > 6] {
   text-name: [enh_snavn];
-  text-face-name: "DejaVu Sans Bold";
+  text-face-name: "Lato Black";
   text-fill: #000;
-  text-size: 22;
+  text-size: 14;
   text-align: center;
   text-halo-fill: white;
   text-halo-radius: 2;
@@ -10,11 +10,12 @@
 }
 
 #fylke[zoom=8] { text-size: 13 }
+#fylke[zoom>8] { text-size: 18 }
 #fylke[zoom > 11] { text-opacity: 0 }
 
 #kommune {
   text-name: [enh_snavn];
-  text-face-name: "DejaVu Sans Bold";
+  text-face-name: "Lato Black";
   text-fill: #333;
   text-size: 12;
   text-align: center;
@@ -39,7 +40,7 @@
 
 #tettsted[zoom>9] {
   text-name: [enh_snavn];
-  text-face-name: "Helvetica Light";
+  text-face-name: "Lato Regular";
   text-fill: #666;
   text-size: 11;
   text-align: left;

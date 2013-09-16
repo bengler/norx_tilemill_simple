@@ -292,8 +292,7 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "stier",
-      "status": "off"
+      "name": "stier"
     },
     {
       "geometry": "polygon",
@@ -325,6 +324,66 @@
       "advanced": {},
       "name": "municipality",
       "status": "off"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( select * from n50_admingrense WHERE objtype = 'Kommunegrense') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "kommunegrense",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "kommunegrense",
+      "class": "grense",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "kommunegrense"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( select * from n50_admingrense WHERE objtype = 'Fylkesgrense') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "fylkesgrense",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "fylkesgrense",
+      "class": "grense",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "fylkesgrense"
     },
     {
       "geometry": "polygon",
@@ -705,66 +764,6 @@
       "advanced": {},
       "name": "turisthytte",
       "status": "off"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -43.911,
-        0,
-        52.478,
-        80.264
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "( select * from n50_admingrense WHERE objtype = 'Fylkesgrense') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "-43.911,0,52.478,80.264",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "fylkesgrense",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "fylkesgrense",
-      "class": "grense",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "fylkesgrense"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        -43.911,
-        0,
-        52.478,
-        80.264
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "( select * from n50_admingrense WHERE objtype = 'Kommunegrense') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "-43.911,0,52.478,80.264",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "kommunegrense",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "kommunegrense",
-      "class": "grense",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "kommunegrense"
     },
     {
       "geometry": "point",
