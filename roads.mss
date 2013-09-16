@@ -121,13 +121,13 @@
 }
 
 #ferge {
-  line-color: #fff;
+  line-color: #599ebe;
   line-width: 1;
   line-dasharray: 1, 2;
   line-opacity: 0.5;
  }
 #ferge[zoom>10] {
-   line-opacity: 1;
+  line-opacity: 1;
   line-color: #599ebe;
   line-width: 4;
   line-dasharray: 1, 4;
