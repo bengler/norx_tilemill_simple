@@ -73,8 +73,7 @@
     line-opacity: 0.8;
 }
 
-#railRoad {
-  
+#railRoad[zoom>10] {
   ::line, ::hatch { 
     line-color: #333;
     line-opacity: 0.4;
@@ -87,10 +86,10 @@
 }
 
 #rullebane[zoom>9] {
-  polygon-fill: #000000;
-  polygon-opacity: 0.5;
+  polygon-fill: #333;
+  polygon-opacity: 0.2;
 }
-#stier[zoom>10] {
+#stier[zoom>12] {
   line-dasharray: 1, 4;
   line-color: @stier;
   line-width: 1;
@@ -100,7 +99,7 @@
   line-dasharray: 1, 4;
   line-color: @stier;
   line-width: 2;
-  line-opacity: 0.5;
+  line-opacity: 0.7;
 }
 
 #ferge {

@@ -44,9 +44,9 @@
 
 /* Shading */
 #slopesshade {
-  raster-opacity:1;
-   comp-op: multiply;
-   raster-scaling: hamming;
+  raster-opacity:0.5;
+  comp-op: multiply;
+  raster-scaling: hamming;
   
 }
 #hill-shade {
