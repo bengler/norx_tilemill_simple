@@ -20,6 +20,7 @@
     "colors.mss",
     "admin.mss",
     "roads.mss",
+    "names.mss",
     "style.mss"
   ],
   "Layer": [
@@ -51,7 +52,8 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "forest"
+      "name": "forest",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -81,7 +83,8 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "rullebane"
+      "name": "rullebane",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -111,7 +114,8 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "mire"
+      "name": "mire",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -213,36 +217,6 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Havflate') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "sea",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "sea",
-      "class": "area",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "sea"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        4.08752590034728,
-        57.7494183785522,
-        31.7614908682609,
-        71.38487872817
-      ],
-      "Datasource": {
-        "type": "postgis",
         "table": "(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Innsjø') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
@@ -318,7 +292,8 @@
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "stier"
+      "name": "stier",
+      "status": "off"
     },
     {
       "geometry": "polygon",
@@ -348,7 +323,38 @@
       "srs-name": "WGS84",
       "srs": "+proj=utm +zone=33 +units=m +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "municipality"
+      "name": "municipality",
+      "status": "off"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        4.08752590034728,
+        57.7494183785522,
+        31.7614908682609,
+        71.38487872817
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Havflate') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "sea",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "sea",
+      "class": "area",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "sea"
     },
     {
       "geometry": "linestring",
@@ -443,36 +449,6 @@
     {
       "geometry": "linestring",
       "extent": [
-        4.59210739532306,
-        57.96738682816219,
-        31.1274013668408,
-        71.1849283020176
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'E') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.59210739532306,57.9673868281622,31.1274013668408,71.1849283020176",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "europeWay",
-        "project": "n50_selector",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "europeRoad",
-      "class": "road",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "europeRoad"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
         4.59210739532305,
         57.96738682816219,
         31.1274013668407,
@@ -529,6 +505,36 @@
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "municipalRoad"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532306,
+        57.96738682816219,
+        31.1274013668408,
+        71.1849283020176
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'E') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "4.59210739532306,57.9673868281622,31.1274013668408,71.1849283020176",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "europeWay",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "europeRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "europeRoad"
     },
     {
       "geometry": "linestring",
@@ -652,6 +658,24 @@
       "name": "slopesshade"
     },
     {
+      "geometry": "raster",
+      "extent": [
+        -1.9988104781591756,
+        57.29483159903428,
+        32.98531653598605,
+        72.0993644685285
+      ],
+      "id": "hillshade",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/kristoffer/dev/map/hillshade.tiff"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshade"
+    },
+    {
       "geometry": "point",
       "extent": [
         4.88908591755001,
@@ -681,6 +705,156 @@
       "advanced": {},
       "name": "turisthytte",
       "status": "off"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( select * from n50_admingrense WHERE objtype = 'Fylkesgrense') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "fylkesgrense",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "fylkesgrense",
+      "class": "grense",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "fylkesgrense"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "( select * from n50_admingrense WHERE objtype = 'Kommunegrense') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "kommunegrense",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "kommunegrense",
+      "class": "grense",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "kommunegrense"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='181') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "fylke",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "fylke",
+      "class": "label",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "fylke"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='182') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "kommune",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "kommune",
+      "class": "label",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "kommune"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='101') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "tettsted",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "tettsted",
+      "class": "label",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "tettsted"
     }
   ],
   "scale": 1,

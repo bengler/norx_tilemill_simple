@@ -1,12 +1,12 @@
-@roadColor: #000000;
+@roadColor: #fff;
 @building: #666666;
-@water: #8fc3d7;
-@forest: #d8e8c3;
-@city: #f7eacd;
+@water: #d6f2ff;
+@forest: #eee;
+@city: #eeeeee;
 @snow: #ffffff;
-@park: #8ddb6c;
-@mire: #c2c798;
-@stier: #5e511f;
+@park: #eee;
+@mire: #eee;
+@stier: #666;
 
-@ground: #d0dabf;
-@background: #333;
+@ground: #fff;
+@background: #fff;

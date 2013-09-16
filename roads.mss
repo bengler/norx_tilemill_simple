@@ -1,80 +1,98 @@
-
-/*
-#motorway::outline {
-  line-color: @roadColor;
-  line-width: 5;
-  line-opacity: 0.5;
-  line-join: round;
-}
-
-#nationalRoad::outline {
-  	line-color: @roadColor;
-	line-width: 3;
-	line-opacity: 0.5;
-    line-join: round;
-}
-
-#countyRoad::outline {
-  	line-color: @roadColor;
-	line-width: 2;
-	line-opacity: 0.5;
-    line-join: round;
-}
-
-#municipalRoad::outline[zoom >= 11] {
-  	line-color: #888;
-	line-width: 2;
-  	line-opacity: 1;
-    line-join: round;
-}
-
-*/
-
 /* Motorvei og Europavei */
 
 #motorway, #europeRoad { 
-  line-color: #ffa269; 
-  line-width: 1;
+  line-color: #333; 
+  line-width:4;
   line-opacity: 0.8;
+  ::line { 
+    line-width:2; 
+    line-color: #fff;
+  }
 }
 
-#motorway[zoom>3],#europeRoad[zoom>3]  { line-width: 1;}
-#motorway[zoom>10],#europeRoad[zoom>10]  { line-width: 2;}
-#motorway[zoom>11],#europeRoad[zoom>11] { line-width: 3;}
-#motorway[zoom>12],#europeRoad[zoom>12] { line-width: 4;}
+#europeRoad[zoom > 5], #motorway[zoom > 5] { 
+  line-width: 2; 
+  line-opacity: 0.5;
+  ::line {
+    line-width:1; 
+      line-opacity: 1;
+  } 
+}
 
+#europeRoad[zoom > 11], #motorway[zoom > 11] { 
+  line-width: 3; 
+  line-opacity: 1;
+  ::line {
+    line-width:1; 
+    
+  } 
+}
 /* Riksvei */
 #nationalRoad {
-  line-color: #ffdc4a; 
-  line-width: 1;
-  line-opacity: 0.8;
+  line-color: #999; 
+  line-width: 3;
+  line-opacity: 0.5;
+  ::line { 
+    line-width:1; 
+    line-color: #fff;
+  }
 }
 
-#nationalRoad[zoom>3]  { line-width: 1;}
-#nationalRoad[zoom>10]  { line-width: 2;}
-#nationalRoad[zoom>11]  { line-width: 3;}
-#nationalRoad[zoom>12] { line-width: 5;}
+#nationalRoad[zoom > 5] { 
+  line-width: 4; 
+  ::line {
+    line-width:1; 
+  } 
+}
+
+#nationalRoad[zoom > 13] { 
+  line-width: 3; 
+  ::line {
+    line-width:1; 
+  } 
+}
+#nationalRoad[zoom > 15] { 
+  line-width: 5; 
+  ::line {
+    line-width:1; 
+  } 
+}
+
 
 /* Fylkesvei */
 #countyRoad[zoom>10] {
-  	line-color: #ffffff;
-	line-width:1;
+  line-color: #999; 
+  line-width: 4;
+  line-opacity: 0.8;
+  ::line { 
+    line-width:2; 
+    line-color: #fff;
+  }
 }
 
 /* Kommunevei */
 #municipalRoad[zoom>11] {
-  	line-color: #ffffff;
-	line-width: 1;
-    line-opacity: 0.5;
+  line-color: #ccc; 
+  line-width: 3;
+  line-opacity: 0.8;
+  ::line { 
+    line-width:1; 
+    line-color: #fff;
+  }
 }
 #municipalRoad[zoom>13] {
-  	line-color: #ffffff;
-	line-width: 1;
-    line-opacity: 0.8;
+  line-color: #ccc; 
+  line-width: 3;
+  line-opacity: 0.8;
+  ::line { 
+    line-width:1; 
+    line-color: #fff;
+  }
 }
 
+
+
 #railRoad {
-  
   ::line, ::hatch { 
     line-color: #333;
     line-opacity: 0.4;
@@ -87,7 +105,7 @@
 }
 
 #rullebane[zoom>9] {
-  polygon-fill: #000000;
+  polygon-fill: #ccc;
   polygon-opacity: 0.5;
 }
 #stier[zoom>10] {
@@ -104,15 +122,15 @@
 }
 
 #ferge {
-  line-color: #4993af;
-  line-width: 2;
-  line-dasharray: 1, 4;
-  line-opacity: 0.9;
- }
-#ferge[zoom<13] {
-  line-color: #4993af;
+  line-color: #fff;
   line-width: 1;
   line-dasharray: 1, 2;
+  line-opacity: 0.5;
+ }
+#ferge[zoom>10] {
+  line-color: #599ebe;
+  line-width: 4;
+  line-dasharray: 1, 4;
   line-opacity: 0.8;
  }
 

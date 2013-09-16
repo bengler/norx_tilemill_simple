@@ -10,6 +10,8 @@
 #sea {
   polygon-fill: @water;
   polygon-opacity: 1;
+  line-color: @water;
+  line-width: 2;
 }
 
 #lake {
@@ -19,12 +21,12 @@
 
 #forest {
   polygon-fill: @forest;
-  polygon-opacity: 0.7;
+  polygon-opacity: 0;
 }
 
 #mire[zoom>9] {
   polygon-fill: @mire;
-  polygon-opacity: 0.3;
+  polygon-opacity: 0;
  }
 
 #city {
@@ -44,16 +46,11 @@
 
 /* Shading */
 #slopesshade {
-  raster-opacity:1;
-   comp-op: multiply;
-   raster-scaling: hamming;
-  
+  raster-opacity: 0.4;
+  comp-op: multiply;
 }
-#hill-shade {
-  raster-opacity:1;
+#hillshade {
+  raster-opacity: 0.25;
+  comp-op: screen;
 }
 
-
-#colorrelieffixedgeo {
-  raster-opacity:1;
-}
