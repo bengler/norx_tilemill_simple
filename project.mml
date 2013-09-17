@@ -454,7 +454,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'R') AS data\n",
+        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'K') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
         "extent_cache": "auto",
@@ -467,12 +467,12 @@
         "project": "n50_selector",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
-      "id": "nationalRoad",
+      "id": "municipalRoad",
       "class": "road",
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "nationalRoad"
+      "name": "municipalRoad"
     },
     {
       "geometry": "linestring",
@@ -514,7 +514,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'K') AS data\n",
+        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'R') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
         "extent_cache": "auto",
@@ -527,12 +527,12 @@
         "project": "n50_selector",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
-      "id": "municipalRoad",
+      "id": "nationalRoad",
       "class": "road",
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "municipalRoad"
+      "name": "nationalRoad"
     },
     {
       "geometry": "linestring",
