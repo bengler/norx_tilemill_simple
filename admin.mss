@@ -1,4 +1,3 @@
-
 #municipality {
   line-color: #fff;
   line-opacity: 0.1;

@@ -25,6 +25,42 @@
   ],
   "Layer": [
     {
+      "geometry": "raster",
+      "extent": [
+        -1.9988104781591756,
+        57.29483159903428,
+        32.98531653598605,
+        72.0993644685285
+      ],
+      "id": "hillshade",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/kristoffer/dev/map/hillshade.tiff"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshade"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        -1.9988104781591756,
+        57.29483159903428,
+        32.98531653598605,
+        72.0993644685285
+      ],
+      "id": "slopesshade",
+      "class": "",
+      "Datasource": {
+        "file": "/Users/kristoffer/dev/map/slopes_shade.tiff"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "slopesshade"
+    },
+    {
       "geometry": "polygon",
       "extent": [
         4.08752590034728,
@@ -319,7 +355,8 @@
       "srs-name": "WGS84",
       "srs": "+proj=utm +zone=33 +units=m +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "municipality"
+      "name": "municipality",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -465,11 +502,71 @@
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "ferge",
-      "class": "road",
+      "class": "",
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "ferge"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'K') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "municipalRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "municipalRoad"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        4.59210739532305,
+        57.96738682816219,
+        31.1274013668407,
+        71.1849283020175
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'F') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "motorway",
+        "project": "n50_selector",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "countyRoad",
+      "class": "road",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "countyRoad"
     },
     {
       "geometry": "linestring",
@@ -541,66 +638,6 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'F') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "motorway",
-        "project": "n50_selector",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "countyRoad",
-      "class": "road",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "countyRoad"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        4.59210739532305,
-        57.96738682816219,
-        31.1274013668407,
-        71.1849283020175
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM n50_vegsti WHERE vegkategori  = 'K') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "motorway",
-        "project": "n50_selector",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "municipalRoad",
-      "class": "road",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "municipalRoad"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        4.59210739532305,
-        57.96738682816219,
-        31.1274013668407,
-        71.1849283020175
-      ],
-      "Datasource": {
-        "type": "postgis",
         "table": "(SELECT * FROM n50_vegsti WHERE motorvegtype  = 'Motorveg' or motorvegtype  = 'Motortrafikkveg') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
@@ -650,97 +687,6 @@
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "building",
-      "status": "off"
-    },
-    {
-      "geometry": "raster",
-      "extent": [
-        -3.728772506796537,
-        69.48802164668226,
-        14.999999999999982,
-        85.051
-      ],
-      "id": "colorrelieffixedgeo",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kristoffer/dev/map/color_relief_fixed_geo.tif"
-      },
-      "srs-name": "custom",
-      "srs": "+proj=utm +zone=33 +units=m +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "colorrelieffixedgeo",
-      "status": "off"
-    },
-    {
-      "id": "countries",
-      "name": "countries",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "geometry": "polygon",
-      "Datasource": {
-        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-countries.zip",
-        "type": "shape",
-        "id": "countries",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "extent": [
-        -179.99978348919961,
-        -85.051,
-        180,
-        83.63381093402975
-      ],
-      "class": "",
-      "srs-name": "900913",
-      "advanced": {},
-      "status": "off"
-    },
-    {
-      "geometry": "raster",
-      "extent": [
-        -1.9988104781591756,
-        57.29483159903428,
-        32.98531653598605,
-        72.0993644685285
-      ],
-      "id": "slopesshade",
-      "class": "",
-      "Datasource": {
-        "file": "/Users/kristoffer/dev/map/slopes_shade.tiff"
-      },
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "slopesshade"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        4.88908591755001,
-        58.10259655500979,
-        30.056004013056,
-        71.0291855445265
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM n50_turisthytte) AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.88908591755001,58.1025965550098,30.056004013056,71.0291855445265",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "turisthytte",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "turisthytte",
-      "class": "building",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "turisthytte",
       "status": "off"
     },
     {

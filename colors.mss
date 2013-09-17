@@ -5,8 +5,8 @@
 @city: #f7eacd;
 @snow: #ffffff;
 @park: #8ddb6c;
-@mire: #c2c798;
+@mire: #969979; /* c2c798*/
 @stier: #5e511f;
 
-@ground: #d0dabf;
+@ground: darken(#d0dabf, 35%);
 @background: #333;
