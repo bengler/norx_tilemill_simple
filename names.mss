@@ -52,7 +52,7 @@
 #tettsted[zoom>9] {
   text-name: [enh_snavn];
   text-face-name: "Lato Regular";
-  text-fill: #333;
+  text-fill: #222;
   text-size: 12;
   text-align: left;
   text-dx: 5;
@@ -62,4 +62,26 @@
   marker-fill: #000;
   marker-width: 5;
   marker-allow-overlap: false;
+  [zoom>10] {
+    text-transform: uppercase;
+    text-size: 13;
+     marker-width: 6;
+  }  
+}
+
+#bygd, #tettsteddel {
+  [zoom>11] {
+    text-name: [enh_snavn];
+    text-face-name: "Lato Regular";
+    text-fill: #333;
+    text-size: 11;
+    text-align: left;
+    text-dx: 5;
+    text-halo-fill: rgba(255,255,255, 0.5);
+    text-halo-radius: 1;
+    text-allow-overlap: false;
+    marker-fill: #666;
+    marker-width: 4;
+    marker-allow-overlap: false;
+  }
 }
