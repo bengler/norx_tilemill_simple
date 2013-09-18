@@ -61,3 +61,13 @@ Map {
   raster-opacity:1;
   comp-op: overlay;
 }
+
+
+#colorrelieffixedgeo {
+  raster-opacity:1;
+}
+
+
+#colorrelieffixedgeo {
+  raster-opacity:1;
+}
