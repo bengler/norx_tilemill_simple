@@ -1,6 +1,6 @@
 @roadColor: #000000;
 @building: #666666;
-@water: #8fc3d7;
+@water: #7cc8e5;
 @forest: #79a63d;
 @city: #f7eacd;
 @snow: #ffffff;

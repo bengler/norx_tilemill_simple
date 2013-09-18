@@ -1,34 +1,4 @@
 
-/*
-#motorway::outline {
-  line-color: @roadColor;
-  line-width: 5;
-  line-opacity: 0.5;
-  line-join: round;
-}
-
-#nationalRoad::outline {
-  	line-color: @roadColor;
-	line-width: 3;
-	line-opacity: 0.5;
-    line-join: round;
-}
-
-#countyRoad::outline {
-  	line-color: @roadColor;
-	line-width: 2;
-	line-opacity: 0.5;
-    line-join: round;
-}
-
-#municipalRoad::outline[zoom >= 11] {
-  	line-color: #888;
-	line-width: 2;
-  	line-opacity: 1;
-    line-join: round;
-}
-
-*/
 
 /* Motorvei og Europavei */
 
@@ -43,11 +13,21 @@
 #motorway[zoom>11],#europeRoad[zoom>11] { line-width: 3;}
 #motorway[zoom>12],#europeRoad[zoom>12] { line-width: 4;}
 
+
+
 /* Riksvei */
-#nationalRoad {
-  line-color: #ffdc4a; 
-  line-width: 1;
+#nationalRoad, #europeRoad  {
+  line-color: #222; 
+  line-width: 5;
   line-opacity: 0.8;
+  comp-op: multiply;
+  
+  ::line {
+      line-width: 1;
+      line-dasharray: 5, 2;
+	  line-color: yellow;
+      line-opacity: 0.8;
+  }
 }
 
 #nationalRoad[zoom>3]  { line-width: 1;}
