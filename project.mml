@@ -25,6 +25,36 @@
   ],
   "Layer": [
     {
+      "geometry": "polygon",
+      "extent": [
+        4.08752590034728,
+        57.7494183785522,
+        31.7614908682609,
+        71.38487872817
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Snøisbre') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "glacier",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "glacier",
+      "class": "area",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "glacier"
+    },
+    {
       "geometry": "raster",
       "extent": [
         -1.9988104781591756,
@@ -149,36 +179,6 @@
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
       "name": "mire"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        4.08752590034728,
-        57.7494183785522,
-        31.7614908682609,
-        71.38487872817
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Snøisbre') AS data\n",
-        "key_field": "ogc_fid",
-        "geometry_field": "wkb_geometry",
-        "extent_cache": "auto",
-        "extent": "4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817",
-        "host": "localhost",
-        "password": "bengler",
-        "dbname": "kartverk",
-        "user": "kartverk",
-        "id": "glacier",
-        "project": "kartverk_tilemill_simple",
-        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-      },
-      "id": "glacier",
-      "class": "area",
-      "srs-name": "WGS84",
-      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
-      "advanced": {},
-      "name": "glacier"
     },
     {
       "geometry": "polygon",
@@ -699,6 +699,66 @@
       ],
       "Datasource": {
         "type": "postgis",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='103') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "bygd",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "bygd",
+      "class": "label",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "bygd"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='102') AS data\n",
+        "key_field": "ogc_fid",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-43.911,0,52.478,80.264",
+        "host": "localhost",
+        "password": "bengler",
+        "dbname": "kartverk",
+        "user": "kartverk",
+        "id": "tettsteddel",
+        "project": "kartverk_tilemill_simple",
+        "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+      },
+      "id": "tettsteddel",
+      "class": "label",
+      "srs-name": "WGS84",
+      "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
+      "advanced": {},
+      "name": "tettsteddel"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        -43.911,
+        0,
+        52.478,
+        80.264
+      ],
+      "Datasource": {
+        "type": "postgis",
         "table": "(SELECT * FROM ssr WHERE enh_navntype='101') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
@@ -759,7 +819,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM ssr WHERE enh_navntype='102') AS data\n",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='132') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
         "extent_cache": "auto",
@@ -768,16 +828,16 @@
         "password": "bengler",
         "dbname": "kartverk",
         "user": "kartverk",
-        "id": "tettsteddel",
+        "id": "bydel",
         "project": "kartverk_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
-      "id": "tettsteddel",
+      "id": "bydel",
       "class": "label",
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "tettsteddel"
+      "name": "bydel"
     },
     {
       "geometry": "point",
@@ -789,7 +849,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM ssr WHERE enh_navntype='103') AS data\n",
+        "table": "(SELECT * FROM ssr WHERE enh_navntype='100') AS data\n",
         "key_field": "ogc_fid",
         "geometry_field": "wkb_geometry",
         "extent_cache": "auto",
@@ -798,16 +858,16 @@
         "password": "bengler",
         "dbname": "kartverk",
         "user": "kartverk",
-        "id": "bygd",
+        "id": "by",
         "project": "kartverk_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
-      "id": "bygd",
+      "id": "by",
       "class": "label",
       "srs-name": "WGS84",
       "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs",
       "advanced": {},
-      "name": "bygd"
+      "name": "by"
     }
   ],
   "scale": 1,

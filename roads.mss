@@ -59,6 +59,9 @@
 #countyRoad[zoom>10] {
   	line-color: #ffffff;
 	line-width:1;
+    line-opacity: 0.75;
+    [zoom>11] { line-opacity: 0.9; } 
+    [zoom>12] { line-opacity: 1; } 
 }
 
 /* Kommunevei */

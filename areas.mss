@@ -20,13 +20,14 @@ Map {
 
 #forest {
   polygon-fill: @forest;
-  polygon-opacity: 0.7;
+  polygon-opacity: 0.3;
   comp-op: multiply;
+
 }
 
 #mire[zoom>9] {
   polygon-fill: @mire;
-  polygon-opacity: 0.3;
+  polygon-opacity: 0.5;
   comp-op: multiply;
  }
 
