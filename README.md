@@ -36,3 +36,4 @@ These files are BIG!
 - To get a good effect add `raster-opacity: 0.5` and `comp-op: multiply` to your layer in the style editor. Raster opacity goes form 0 to 1. And other good `comp-op`s are `multiply`, `darken` and `overlay`.
 - Check the [CartoCSS referance](http://www.mapbox.com/carto/api/2.1.0/) for more styling options
 - Read the [Tilemill guides](http://www.mapbox.com/tilemill/docs/guides/add-shapefile/) 
+- *NOTE!* If you copy your new mapnik.xml back to the VM with shading-tif, you need to manually referance the tiff-files to the correct path on the VM.
