@@ -1,7 +1,8 @@
-
+Map {
+  background-color: @ground;
+}
 .area {
 }
-
 #rivers_poly[zoom > 8] {
   polygon-fill: @water;
   polygon-opacity: 1;
@@ -19,17 +20,22 @@
 
 #forest {
   polygon-fill: @forest;
-  polygon-opacity: 0.7;
+  polygon-opacity: 0.3;
+  comp-op: multiply;
+
 }
 
 #mire[zoom>9] {
   polygon-fill: @mire;
-  polygon-opacity: 0.3;
+  polygon-opacity: 0.5;
+  comp-op: multiply;
  }
 
 #city {
   polygon-fill: @city;
-  polygon-opacity: 1;
+  polygon-opacity: 0.6;
+  comp-op: lighten;
+  
 }
 
 #glacier {
@@ -41,19 +47,17 @@
   polygon-fill: lighten(@forest, 40);
   polygon-opacity: 1;
 }
+#park {
+  polygon-fill: lighten(@park, 20%);
+  comp-op: multiply;
+}
 
 /* Shading */
 #slopesshade {
-  raster-opacity:1;
-   comp-op: multiply;
-   raster-scaling: hamming;
-  
+  raster-opacity:0.5;
+  comp-op: multiply;
 }
-#hill-shade {
+#hillshade {
   raster-opacity:1;
-}
-
-
-#colorrelieffixedgeo {
-  raster-opacity:1;
+  comp-op: overlay;
 }

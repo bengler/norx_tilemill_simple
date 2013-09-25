@@ -2,6 +2,8 @@ A few simple [Tilemill](http://www.mapbox.com/tilemill/) projects for styling th
 
 When you're happy with your map styles. Compile them to mapnik XML with carto:
 
+
+# Create Mapnik XML
 ```
 npm install -g carto
 carto <project>.mml > mapnik.xml
@@ -10,5 +12,12 @@ carto <project>.mml > mapnik.xml
 and copy the resulting file into the VM:
 
 ```
-scp mapnik.xml 127.0.0.1:/…
+scp mapnik.xml 127.0.0.1:/…   (change 127.0.0.1 to your VM's IP)
 ```
+
+# Open in Tilemill
+- [Download Tilemill](http://www.mapbox.com/tilemill/) and install
+- Add `norx` with the VM's IP to /etc/hosts
+- Clone this project in your Tilemill project directory (~/Documents/MapBox/projects on a OS X)
+- Run Tilemill and choose the Norx-project
+- Wait…
