@@ -24,3 +24,15 @@ scp mapnik.xml 127.0.0.1:/…   (change 127.0.0.1 to your VM's IP)
 - Run Tilemill and choose the Norx-project
 - Wait… (check your system-monitor to see that it is working. This can take minutes)
 - If everything works you should be able to edit and style the map. 
+
+# Playing with hill shade, slope shade and color-relief in tilemill (advanced)
+These files are BIG!
+- Copy the tiff-files from your VM after generating them (see the vm's readme) to your  local disk
+- Create a layer in tilemill and choose your local file with the shading.
+- Set SRS to `+proj=utm +zone=32 +units=m`
+- Click Save & Style
+- Wait…
+- Arrange your layer in "Layers"
+- To get a good effect add `raster-opacity: 0.5` and `comp-op: multiply` to your layer in the style editor. Raster opacity goes form 0 to 1. And other good `comp-op`s are `multiply`, `darken` and `overlay`.
+- Check the [CartoCSS referance](http://www.mapbox.com/carto/api/2.1.0/) for more styling options
+- Read the [Tilemill guides](http://www.mapbox.com/tilemill/docs/guides/add-shapefile/) 
