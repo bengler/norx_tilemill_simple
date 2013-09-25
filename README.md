@@ -25,7 +25,7 @@ scp mapnik.xml 127.0.0.1:/…   (change 127.0.0.1 to your VM's IP)
 - Wait… (check your system-monitor to see that it is working. This can take minutes)
 - If everything works you should be able to edit and style the map. 
 
-### Playing with hill shade, slope shade and color-relief in tilemill (advanced)
+#### Playing with hill shade, slope shade and color-relief in tilemill (advanced)
 These files are BIG!
 - Copy the tiff-files from your VM after generating them (see the vm's readme) to your  local disk
 - Create a layer in tilemill and choose your local file with the shading.
