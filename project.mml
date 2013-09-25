@@ -44,7 +44,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "glacier",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "glacier",
@@ -74,7 +74,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "forest",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "forest",
@@ -104,7 +104,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "rullebane",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "rullebane",
@@ -134,7 +134,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "mire",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "mire",
@@ -164,7 +164,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "park",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "park",
@@ -194,7 +194,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "city",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
       },
       "id": "city",
@@ -254,7 +254,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "rivers_poly",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "rivers_poly",
@@ -342,7 +342,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "kommunegrense",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "kommunegrense",
@@ -372,7 +372,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "fylkesgrense",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "fylkesgrense",
@@ -402,7 +402,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "sea",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "sea",
@@ -432,7 +432,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "railRoad",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "railRoad",
@@ -462,7 +462,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "ferge",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "ferge",
@@ -612,7 +612,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "motorway",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "motorway",
@@ -673,7 +673,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "bygd",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "bygd",
@@ -703,7 +703,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "tettsteddel",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "tettsteddel",
@@ -733,7 +733,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "tettsted",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "tettsted",
@@ -763,7 +763,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "kommune",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "kommune",
@@ -793,7 +793,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "bydel",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "bydel",
@@ -823,7 +823,7 @@
         "dbname": "kartverk",
         "user": "kartverk",
         "id": "by",
-        "project": "kartverk_tilemill_simple",
+        "project": "norx_tilemill_simple",
         "srs": "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
       },
       "id": "by",
