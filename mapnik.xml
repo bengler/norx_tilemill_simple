@@ -1,150 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE Map[]>
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" background-color="#d0dabf" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+<Map srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" background-color="#7b9254" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
 
 <Parameters>
-  <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
-  <Parameter name="center">0,0,2</Parameter>
+  <Parameter name="bounds">0.4395,50.2613,2.9004,51.9713</Parameter>
+  <Parameter name="center">1.2305,51.2619,6</Parameter>
   <Parameter name="format">png</Parameter>
   <Parameter name="minzoom">0</Parameter>
   <Parameter name="maxzoom">22</Parameter>
-  <Parameter name="name"><![CDATA[N50 for Leaflet]]></Parameter>
+  <Parameter name="name"><![CDATA[NORX]]></Parameter>
+  <Parameter name="description"><![CDATA[A few simple Tilemill projects for styling the maps running in the Norx virtual machine.]]></Parameter>
+  <Parameter name="attribution"><![CDATA[Bengler & Statens Karverk]]></Parameter>
 </Parameters>
 
 
-<Style name="countries" filter-mode="first" >
+<Style name="glacier" filter-mode="first" >
   <Rule>
-    <PolygonSymbolizer fill="#ffffff" />
+    <PolygonSymbolizer fill="#ffffff" fill-opacity="1" />
   </Rule>
 </Style>
-<Style name="countries-outline" filter-mode="first" >
-  <Rule>
-    <LineSymbolizer stroke="#ccdddd" stroke-width="2" stroke-linejoin="round" />
-  </Rule>
-</Style>
-<Layer name="countries"
-  status="off"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>countries-outline</StyleName>
-    <StyleName>countries</StyleName>
-    <Datasource>
-       <Parameter name="file"><![CDATA[/Users/even/Documents/MapBox/project/n50_selector/layers/countries/82945364-10m-admin-0-countries.shp]]></Parameter>
-       <Parameter name="type"><![CDATA[shape]]></Parameter>
-       <Parameter name="id"><![CDATA[countries]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
-       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="stier" filter-mode="first" >
-</Style>
-<Layer name="stier"
-  status="off"
+<Layer name="glacier"
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName>stier</StyleName>
+    <StyleName>glacier</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM vegsti WHERE objtype = 'Sti') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Snøisbre') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[glacier]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="forest" filter-mode="first" >
+<Style name="forest" filter-mode="first"  comp-op="multiply" >
   <Rule>
-    <PolygonSymbolizer fill="#d8e8c3" fill-opacity="1" />
+    <PolygonSymbolizer fill="#79a63d" fill-opacity="0.3" />
   </Rule>
 </Style>
 <Layer name="forest"
-  srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ">
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>forest</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM arealdekkeflate WHERE objtype = 'Skog') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Skog') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-99551.2100000009,6424129.51,1121940.59,7962743.58]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[forest]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
-       <Parameter name="srs"><![CDATA[+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="city" filter-mode="first" >
+<Style name="rullebane" filter-mode="first" >
   <Rule>
-    <PolygonSymbolizer fill="#f7eacd" fill-opacity="1" />
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#333333" fill-opacity="0.2" />
+  </Rule>
+</Style>
+<Layer name="rullebane"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>rullebane</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Rullebane') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[rullebane]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="mire" filter-mode="first"  comp-op="multiply" >
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <PolygonSymbolizer fill="#969979" fill-opacity="0.5" />
+  </Rule>
+</Style>
+<Layer name="mire"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>mire</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Myr') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[mire]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="park" filter-mode="first"  comp-op="multiply" >
+  <Rule>
+    <PolygonSymbolizer fill="#cdefbe" />
+  </Rule>
+</Style>
+<Layer name="park"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>park</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Park') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[park]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="city" filter-mode="first"  comp-op="lighten" >
+  <Rule>
+    <PolygonSymbolizer fill="#f7eacd" fill-opacity="0.6" />
   </Rule>
 </Style>
 <Layer name="city"
-  srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ">
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>city</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM arealdekkeflate WHERE objtype = 'TettBebyggelse' or objtype = 'BymessigBebyggelse') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'TettBebyggelse' or objtype = 'BymessigBebyggelse') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-99551.2100000009,6424129.51,1121940.59,7962743.58]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[city]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="sea" filter-mode="first" >
+<Style name="lake" filter-mode="first" >
   <Rule>
-    <PolygonSymbolizer fill="#afd0dd" fill-opacity="1" />
+    <PolygonSymbolizer fill="#8fc3d7" fill-opacity="1" />
   </Rule>
 </Style>
-<Layer name="sea"
-  srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ">
-    <StyleName>sea</StyleName>
+<Layer name="lake"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>lake</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM arealdekkeflate WHERE objtype = 'Havflate') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Innsjø') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-99551.2100000009,6424129.51,1121940.59,7962743.58]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
-       <Parameter name="id"><![CDATA[cities]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
-       <Parameter name="srs"><![CDATA[+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="sea" filter-mode="first" >
-  <Rule>
-    <PolygonSymbolizer fill="#afd0dd" fill-opacity="1" />
-  </Rule>
-</Style>
-<Layer name="sea"
-  srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ">
-    <StyleName>sea</StyleName>
-    <Datasource>
-       <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM arealdekkeflate WHERE objtype = 'Innsjø') AS data
-]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
-       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-99551.2100000009,6424129.51,1121940.59,7962743.58]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[lake]]></Parameter>
        <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ]]></Parameter>
@@ -154,70 +201,283 @@
 <Style name="rivers_poly" filter-mode="first" >
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
-    <PolygonSymbolizer fill="#afd0dd" fill-opacity="1" />
+    <PolygonSymbolizer fill="#8fc3d7" fill-opacity="1" />
   </Rule>
 </Style>
 <Layer name="rivers_poly"
-  srs="+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ">
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>rivers_poly</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM arealdekkeflate WHERE objtype = 'ElvBekk') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'ElvBekk') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-99551.2100000009,6424129.51,1121940.59,7962743.58]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
-       <Parameter name="id"><![CDATA[cities]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
-       <Parameter name="srs"><![CDATA[+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[rivers_poly]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="stier" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <LineSymbolizer stroke-dasharray="1, 4" stroke="#5e511f" stroke-width="2" stroke-opacity="0.7" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <LineSymbolizer stroke-dasharray="1, 4" stroke="#5e511f" stroke-width="1" stroke-opacity="0.5" />
+  </Rule>
+</Style>
+<Layer name="stier"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>stier</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE objtype = 'Sti') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.59210739532306,57.9673868281622,31.1274013668408,71.1849283020176]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
     </Datasource>
   </Layer>
 
 <Style name="municipality" filter-mode="first" >
   <Rule>
-    <LineSymbolizer stroke="#ffffff" stroke-opacity="0.3" stroke-width="4" />
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#ffffff" stroke-opacity="0.1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#ffffff" stroke-opacity="0.1" stroke-width="4" />
   </Rule>
 </Style>
 <Layer name="municipality"
-  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+  status="off"
+  srs="+proj=utm +zone=33 +units=m +ellps=WGS84 +datum=WGS84 +no_defs">
     <StyleName>municipality</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM adminflate where objtype = 'Kommune') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_adminflate where objtype = 'Kommune') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[4.08753245746424,57.7590015575136,31.7614727973067,71.3848754939]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[municipality]]></Parameter>
        <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="nationalRoad" filter-mode="first" >
+<Style name="kommunegrense" filter-mode="first" >
   <Rule>
-    <LineSymbolizer stroke="#ffffff" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" />
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke-opacity="1" stroke="#000000" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="0.8" stroke="#000000" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke="#000000" stroke-width="1" stroke-opacity="0.5" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>1500000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="0" />
   </Rule>
 </Style>
-<Layer name="nationalRoad"
+<Layer name="kommunegrense"
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName>nationalRoad</StyleName>
+    <StyleName>kommunegrense</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM vegsti WHERE vegkategor  = 'R') AS data
+       <Parameter name="table"><![CDATA[( select * from n50_admingrense WHERE objtype = 'Kommunegrense') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[gid]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[the_geom]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08753245746425,57.7590015575136,31.7614727973067,71.3848754939]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[kommunegrense]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="fylkesgrense" filter-mode="first" >
+  <Rule>
+    <MinScaleDenominator>3000000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="0" stroke="#333333" stroke-width="2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>3000000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#333333" stroke-width="2" stroke-opacity="0.5" />
+  </Rule>
+</Style>
+<Layer name="fylkesgrense"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>fylkesgrense</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[( select * from n50_admingrense WHERE objtype = 'Fylkesgrense') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[fylkesgrense]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="sea" filter-mode="first" >
+  <Rule>
+    <PolygonSymbolizer fill="#8fc3d7" fill-opacity="1" />
+  </Rule>
+</Style>
+<Layer name="sea"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>sea</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_arealdekkeflate WHERE objtype = 'Havflate') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.08752590034728,57.7494183785522,31.7614908682609,71.38487872817]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[sea]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="railRoad" filter-mode="first" >
+</Style>
+<Style name="railRoad-hatch" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="4" stroke-dasharray="1, 5" stroke="#333333" stroke-opacity="0.4" />
+  </Rule>
+</Style>
+<Style name="railRoad-line" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#333333" stroke-opacity="0.4" />
+  </Rule>
+</Style>
+<Layer name="railRoad"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>railRoad-line</StyleName>
+    <StyleName>railRoad-hatch</StyleName>
+    <StyleName>railRoad</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_bane WHERE objtype = 'Bane') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[5.310151475439,58.1389530993997,30.0352828982639,69.7258681136307]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[railRoad]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="ferge" filter-mode="first" >
+  <Rule>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke="#4993af" stroke-width="1" stroke-dasharray="1, 2" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#4993af" stroke-width="2" stroke-dasharray="1, 4" stroke-opacity="0.9" />
+  </Rule>
+</Style>
+<Layer name="ferge"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>ferge</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_ferge) AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[5.310151475439,58.1389530993997,30.0352828982639,69.7258681136307]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[ferge]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="municipalRoad" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#ffffff" stroke-width="1" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <LineSymbolizer stroke="#ffffff" stroke-width="1" stroke-opacity="0.5" />
+  </Rule>
+</Style>
+<Layer name="municipalRoad"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>municipalRoad</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE vegkategori  = 'K') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[motorway]]></Parameter>
        <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
@@ -226,7 +486,18 @@
 
 <Style name="countyRoad" filter-mode="first" >
   <Rule>
-    <LineSymbolizer stroke="#ffffff" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" />
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke-opacity="1" stroke="#ffffff" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-opacity="0.9" stroke="#ffffff" stroke-width="1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke="#ffffff" stroke-width="1" stroke-opacity="0.75" />
   </Rule>
 </Style>
 <Layer name="countyRoad"
@@ -234,40 +505,109 @@
     <StyleName>countyRoad</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM vegsti WHERE vegkategor  = 'F') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE vegkategori  = 'F') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[gid]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[the_geom]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[motorway]]></Parameter>
        <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="municipalRoad" filter-mode="first" >
+<Style name="nationalRoad" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="5" stroke="#ffdc4a" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="3" stroke="#ffdc4a" stroke-opacity="0.8" />
+  </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#ffffff" stroke-width="1" stroke-opacity="1" stroke-linejoin="round" />
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="2" stroke="#ffdc4a" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#ffdc4a" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#ffdc4a" stroke-width="1" stroke-opacity="0.8" />
   </Rule>
 </Style>
-<Layer name="municipalRoad"
+<Layer name="nationalRoad"
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName>municipalRoad</StyleName>
+    <StyleName>nationalRoad</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM vegsti WHERE vegkategor  = 'K') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE vegkategori  = 'R') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[gid]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[the_geom]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[motorway]]></Parameter>
+       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="europeRoad" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="4" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="3" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="2" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#ffa269" stroke-width="1" stroke-opacity="0.8" />
+  </Rule>
+</Style>
+<Layer name="europeRoad"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>europeRoad</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE vegkategori  = 'E') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[4.59210739532306,57.9673868281622,31.1274013668408,71.1849283020176]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[europeWay]]></Parameter>
        <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
@@ -275,7 +615,27 @@
 
 <Style name="motorway" filter-mode="first" >
   <Rule>
-    <LineSymbolizer stroke="#ffffff" stroke-width="4" stroke-opacity="1" stroke-linejoin="round" />
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <LineSymbolizer stroke-width="4" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="3" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="2" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <LineSymbolizer stroke-width="1" stroke="#ffa269" stroke-opacity="0.8" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <LineSymbolizer stroke="#ffa269" stroke-width="1" stroke-opacity="0.8" />
   </Rule>
 </Style>
 <Layer name="motorway"
@@ -283,49 +643,193 @@
     <StyleName>motorway</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM vegsti WHERE motorvegty  = 'Motorveg' or motorvegty  = 'Motortrafikkveg') AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM n50_vegsti WHERE motorvegtype  = 'Motorveg' or motorvegtype  = 'Motortrafikkveg') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[gid]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[the_geom]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="extent"><![CDATA[4.59210739532305,57.9673868281622,31.1274013668407,71.1849283020175]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
        <Parameter name="id"><![CDATA[motorway]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
 
-<Style name="building" filter-mode="first" >
+<Style name="bygd" filter-mode="first" >
   <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#588585" stroke-width="1" />
-    <PolygonSymbolizer fill="#ccdddd" fill-opacity="1" />
-    <BuildingSymbolizer fill="#ccdddd" height="1.25" />
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Lato Regular" fill="#333333" size="11" justify-alignment="left" dx="5" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+    <MarkersSymbolizer fill="#666666" width="4" allow-overlap="false" />
+  </Rule>
+</Style>
+<Layer name="bygd"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>bygd</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='103') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[bygd]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="tettsteddel" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Lato Regular" fill="#333333" size="11" justify-alignment="left" dx="5" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+    <MarkersSymbolizer fill="#666666" width="4" allow-overlap="false" />
+  </Rule>
+</Style>
+<Layer name="tettsteddel"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>tettsteddel</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='102') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[tettsteddel]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="tettsted" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Lato Regular" fill="#222222" size="12" justify-alignment="left" dx="5" halo-fill="rgba(255, 255, 255, 0.5)" halo-radius="1" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+    <MarkersSymbolizer fill="#000000" width="5" allow-overlap="false" />
+  </Rule>
+</Style>
+<Layer name="tettsted"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>tettsted</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='101') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[tettsted]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="kommune" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <TextSymbolizer size="14" allow-overlap="false" face-name="Lato Bold" fill="#333333" justify-alignment="center" halo-fill="#ffffff" halo-radius="1.3" text-transform="uppercase" opacity="1" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <LineSymbolizer stroke="#588585" stroke-width="1" />
-    <PolygonSymbolizer fill="#ccdddd" fill-opacity="1" />
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <TextSymbolizer face-name="Lato Bold" fill="#333333" size="12" justify-alignment="center" halo-fill="#ffffff" halo-radius="1.3" text-transform="uppercase" opacity="1" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
   </Rule>
 </Style>
-<Layer name="building"
+<Layer name="kommune"
   srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName>building</StyleName>
+    <StyleName>kommune</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[(SELECT * FROM grunnriss) AS data
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='182') AS data
 ]]></Parameter>
-       <Parameter name="key_field"><![CDATA[gid]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[the_geom]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[4.6341425531269,58.0124583290681,31.1204911896627,71.1700391763523]]></Parameter>
-       <Parameter name="dbname"><![CDATA[n50_development]]></Parameter>
-       <Parameter name="user"><![CDATA[even]]></Parameter>
-       <Parameter name="id"><![CDATA[building]]></Parameter>
-       <Parameter name="project"><![CDATA[n50_selector]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[kommune]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="bydel" filter-mode="first" >
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <TextSymbolizer size="10" face-name="Lato Regular" fill="#333333" justify-alignment="center" halo-fill="#ffffff" halo-radius="1" text-transform="uppercase" opacity="1" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <TextSymbolizer face-name="Lato Regular" fill="#333333" justify-alignment="center" halo-fill="#ffffff" halo-radius="1" text-transform="uppercase" opacity="1" size="12" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="bydel"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>bydel</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='132') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[bydel]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="by" filter-mode="first" >
+  <Rule>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <TextSymbolizer face-name="Lato Black" fill="#000000" justify-alignment="center" halo-fill="#ffffff" halo-radius="2" text-transform="uppercase" opacity="1" size="13" allow-overlap="false" ><![CDATA[[enh_snavn]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Layer name="by"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>by</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT * FROM ssr WHERE enh_navntype='100') AS data
+]]></Parameter>
+       <Parameter name="key_field"><![CDATA[ogc_fid]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[wkb_geometry]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-43.911,0,52.478,80.264]]></Parameter>
+       <Parameter name="host"><![CDATA[norx]]></Parameter>
+       <Parameter name="password"><![CDATA[bengler]]></Parameter>
+       <Parameter name="dbname"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="user"><![CDATA[kartverk]]></Parameter>
+       <Parameter name="id"><![CDATA[by]]></Parameter>
+       <Parameter name="project"><![CDATA[kartverk_tilemill_simple]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
     </Datasource>
   </Layer>
