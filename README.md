@@ -18,7 +18,9 @@ scp mapnik.xml 127.0.0.1:/…   (change 127.0.0.1 to your VM's IP)
 # Editing with Tilemill
 - [Download Tilemill](http://www.mapbox.com/tilemill/) and install
 - Add `norx` with the VM's IP to `/etc/hosts`
-- Clone this project in your Tilemill project directory (~/Documents/MapBox/projects on a OS X)
+- Clone this project in your Tilemill project directory (~/Documents/MapBox/project on a OS X)
+ `cd ~/Documents/MapBox/project`
+ `git clone git@github.com:bengler/norx_tilemill_simple.git`
 - Run Tilemill and choose the Norx-project
 - Wait… (check your system-monitor to see that it is working. This can take minutes)
 - If everything works you should be able to edit and style the map. 
