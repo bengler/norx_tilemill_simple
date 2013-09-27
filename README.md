@@ -4,7 +4,7 @@ When you're happy with your map styles. Compile them to mapnik XML with carto:
 
 # Get and install the NorxVM
 - Before doing anything. you need [VirtualBox](https://www.virtualbox.org/) and the [NorxVM](https://github.com/bengler/kartverk_vm).
-- Add `norx` with the VM's IP to `/etc/hosts` (Find it by typing `ifconfig` on the terminal in the VirtualBox window. 
+- Add `norx` with the VM's IP (probably your localhost if using vagrant: 127.0.0.1) to `/etc/hosts`
 - User and password to the NorxVM is available on [NorxVM's github page](https://github.com/bengler/kartverk_vm)
 
 # Create Mapnik XML
